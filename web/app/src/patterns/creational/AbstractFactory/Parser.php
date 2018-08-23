@@ -6,7 +6,7 @@
  * Time: 11:26
  */
 
-namespace Dallask\DesignPatterns;
+namespace Dallask\Patterns\Creational\AbstractFactory;
 
 interface Parser
 {

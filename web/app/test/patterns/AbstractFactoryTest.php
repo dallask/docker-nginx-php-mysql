@@ -6,11 +6,11 @@
  * Time: 11:41
  */
 
-namespace Dallask\DesignPatterns;
+namespace Dallask\Patterns\Creational\AbstractFactory;
 
 use PHPUnit\Framework\TestCase;
 
-class ParserFactoryTest extends TestCase
+class AbstractFactoryTest extends TestCase
 {
 
     public $factory;
@@ -20,19 +20,19 @@ class ParserFactoryTest extends TestCase
     )
     {
         parent::__construct($name, $data, $dataName);
-        $this->factory = new ParserFactory();
+        $this->factory = new AbstractFactory();
     }
 
 
     public function testObjectType()
     {
-        $this->assertInstanceOf('Dallask\DesignPatterns\ParserFactory', $this->factory);
+        $this->assertInstanceOf('Dallask\Patterns\Creational\AbstractFactory\AbstractFactory', $this->factory);
     }
 
     public function testObjectTypeCSVParser()
     {
         $parserObject = $this->factory->createCSVParser();
-        $this->assertInstanceOf('Dallask\DesignPatterns\CSVParser', $parserObject);
+        $this->assertInstanceOf('Dallask\Patterns\Creational\AbstractFactory\CSVParser', $parserObject);
     }
 
     public function testCreateCSVParser()

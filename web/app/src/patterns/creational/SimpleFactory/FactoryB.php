@@ -5,7 +5,7 @@
  * Date: 22-Aug-18
  * Time: 15:56
  */
-namespace Dallask\DesignPatterns;
+namespace Dallask\Patterns\Creational\SimpleFactory;
 
 class FactoryB {
     public function __construct()

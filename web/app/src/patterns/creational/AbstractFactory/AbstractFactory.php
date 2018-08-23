@@ -6,9 +6,9 @@
  * Time: 11:35
  */
 
-namespace Dallask\DesignPatterns;
+namespace Dallask\Patterns\Creational\AbstractFactory;
 
-class ParserFactory
+class AbstractFactory
 {
     public function createCSVParser() :CSVParser
     {

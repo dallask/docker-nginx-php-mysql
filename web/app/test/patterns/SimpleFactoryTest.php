@@ -6,10 +6,8 @@
  * Time: 16:46
  */
 
-namespace Dallask\DesignPatternsTest;
+namespace Dallask\Patterns\Creational\SimpleFactory;
 
-use Dallask\DesignPatterns;
-use Dallask\DesignPatterns\SimpleFactory;
 use PHPUnit\Framework\TestCase;
 
 class SimpleFactoryTest extends TestCase
@@ -24,16 +22,16 @@ class SimpleFactoryTest extends TestCase
 
     public function testGetFactoryA()
     {
-        $this->assertInstanceOf('Dallask\DesignPatterns\FactoryA', $this->factory->createObject("A"));
+        $this->assertInstanceOf('Dallask\Patterns\Creational\SimpleFactory\FactoryA', $this->factory->createObject("A"));
     }
 
     public function testGetFactoryB()
     {
-        $this->assertInstanceOf('Dallask\DesignPatterns\FactoryB', $this->factory->createObject("B"));
+        $this->assertInstanceOf('Dallask\Patterns\Creational\SimpleFactory\FactoryB', $this->factory->createObject("B"));
     }
 
     public function testGetFactoryDefault()
     {
-        $this->assertInstanceOf('Dallask\DesignPatterns\FactoryA', $this->factory->createObject());
+        $this->assertInstanceOf('Dallask\Patterns\Creational\SimpleFactory\FactoryA', $this->factory->createObject());
     }
 }

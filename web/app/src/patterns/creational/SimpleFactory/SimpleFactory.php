@@ -6,7 +6,7 @@
  * Time: 15:51
  */
 
-namespace Dallask\DesignPatterns;
+namespace Dallask\Patterns\Creational\SimpleFactory;
 
 class SimpleFactory
 {
