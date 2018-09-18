@@ -54,3 +54,16 @@ services:
             - "8989:3306"
         volumes:
             - "./data/db/mysql:/var/lib/mysql"
+    apache:
+        image: wodby/php-apache:2.4-2.0.0
+        depends_on:
+          - php
+          - mysqldb
+        ports:
+          - "8088:80"
+        volumes:
+          - "./web:/var/www/html"
+        environment:
+          APACHE_LOG_LEVEL: debug
+          APACHE_BACKEND_HOST: php
+          APACHE_SERVER_ROOT: /var/www/html/public/docroot
