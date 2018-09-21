@@ -59,4 +59,52 @@
         <echo file="./build/README.txt" append="false">Writing this msg to README.txt</echo>
     </target>
 
+    <!-- ============================================  -->
+    <!-- Target: custom task file decoding             -->
+    <!-- ============================================  -->
+    <taskdef name="convencoding" classname="App\Acme\convEncodingTask" />
+
+    <target name="convertencoding">
+        <convencoding fromencoding="windows-1251" toencoding="utf-8"
+                      targetdir="new_dir">
+            <fileset dir="src_dir" />
+        </convencoding>
+    </target>
+    <!-- /custom task file decoding  -->
+
+
+    <!-- ============================================  -->
+    <!-- Target: custom task in build.xml              -->
+    <!-- ============================================  -->
+    <target name="defineadhoc" hidden="true">
+        <adhoc-task name="ah1"><![CDATA[
+      class SomeAdHocTaskClass extends Task {
+        private $arg1;
+
+        function setAh1Arg1($arg1) {
+          $this->arg1 = $arg1;
+        }
+
+        function main() {
+          $this->log("In " . __METHOD__ . ", arg1 = " . $this->arg1);
+        }
+      }
+    ]]></adhoc-task>
+    </target>
+
+    <target name="useadhoc" depends="defineadhoc" description="Demo: use an ad-hoc class">
+        <ah1 ah1Arg1="foo" />
+    </target>
+    <!-- /custom task in build.xml  -->
+
+    <!-- ============================================  -->
+    <!-- Target: custom task demo                      -->
+    <!-- ============================================  -->
+    <taskdef name="demo" classname="Acme\Build\DemoTask" />
+
+    <target name="usetask">
+        <demo arg="some value" />
+    </target>
+    <!-- /custom task demo -->
+
 </project>

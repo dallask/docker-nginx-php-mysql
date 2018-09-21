@@ -16,6 +16,9 @@
             "App\\Acme\\": "src/",
             "Dallask\\DesignPatterns\\": "src/patterns/",
             "Dallask\\Patterns\\": "src/patterns/"
+        },
+        "psr-0": {
+            "": "src/"
         }
     },
     "autoload-dev": {
