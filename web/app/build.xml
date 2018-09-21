@@ -3,6 +3,17 @@
 
     <property name="message" value="Hello World!"/>
 
+    <!-- ============================================  -->
+    <!-- Target: built in properties example      -->
+    <!-- ============================================  -->
+    <target name="built-in-properties">
+        <echo msg="Examples of system properties:"/>
+        <echo msg="application.startdir: ${application.startdir}" />
+        <echo msg="env.SCRIPT_NAME: ${env.SCRIPT_NAME}" />
+        <echo msg="phing.version: ${phing.version}" />
+        <echo msg="user.home: ${user.home}" />
+    </target>
+
     <target name="welcome">
         <echo msg="${message}"/>
         <echo msg="Making directory ./build" />
