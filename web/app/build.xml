@@ -4,4 +4,17 @@
     <target name="welcome">
         <echo msg="${message}"/>
     </target>
+
+    <target name="test">
+        <phpunit printsummary="true"
+                 haltonfailure="true"
+                 bootstrap="./vendor/autoload.php"
+                 pharlocation="./vendor/bin/phpunit">
+            <batchtest>
+                <fileset dir="./test">
+                    <include name="*Test.php"/>
+                </fileset>
+            </batchtest>
+        </phpunit>
+    </target>
 </project>
