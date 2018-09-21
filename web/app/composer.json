@@ -6,9 +6,10 @@
         "apigen/apigen": "dev-master",
         "phpmd/phpmd": "@stable",
         "phpunit/phpunit": "^7.0",
-        "phpunit/php-code-coverage": "^3",
+        "phpunit/php-code-coverage": "@stable",
         "roave/better-reflection": "dev-master#c87d856",
-        "squizlabs/php_codesniffer": "3.*"
+        "squizlabs/php_codesniffer": "@stable",
+        "phing/phing": "^2.16"
     },
     "autoload": {
         "psr-4": {
