@@ -1,20 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="HelloWorld" default="welcome" basedir="." description="a demo project">
+<project name="HelloWorld" default="dist" basedir="." description="a demo project">
+
     <property name="message" value="Hello World!"/>
+
     <target name="welcome">
         <echo msg="${message}"/>
+        <echo msg="Making directory ./build" />
+        <mkdir dir="./build" />
     </target>
 
-    <target name="test">
-        <phpunit printsummary="true"
-                 haltonfailure="true"
-                 bootstrap="./vendor/autoload.php"
-                 pharlocation="./vendor/bin/phpunit">
-            <batchtest>
-                <fileset dir="./test">
-                    <include name="*Test.php"/>
-                </fileset>
-            </batchtest>
-        </phpunit>
+    <!-- ============================================  -->
+    <!-- Target: unittest with using exec      -->
+    <!-- ============================================  -->
+    <target name="unittest">
+        <echo msg="Run Unit tests with using exec..."/>
+        <exec executable="./vendor/bin/phpunit" passthru="true">
+            <arg value="--configuration"/>
+            <arg value="phpunit.xml.dist"/>
+        </exec>
     </target>
+
+    <!-- ============================================  -->
+    <!-- Target: prepare                               -->
+    <!-- ============================================  -->
+    <target name="prepare" depends="welcome">
+        <!-- Make a build directory in the current dir `.` -->
+        <echo msg="Making directory ./build" />
+        <mkdir dir="./build" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: build - Dependant on `prepare`        -->
+    <!-- ============================================  -->
+    <target name="build" depends="prepare,unittest">
+        <!-- Create our file - (we dont have to do this   -->
+        <!-- the echo below creates it if it don't exist) -->
+        <!-- It's here as a simple example                -->
+        <echo msg="Making new README.txt file in build directory..." />
+        <touch file="./build/README.txt" millis="102134111" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- (DEFAULT) Target: dist - Dependant on `build` -->
+    <!-- ============================================  -->
+    <target name="dist" depends="build">
+        <echo msg="Writing text to the file README.txt..." />
+        <echo file="./build/README.txt" append="false">Writing this msg to README.txt</echo>
+    </target>
+
 </project>
