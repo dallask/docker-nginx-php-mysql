@@ -67,3 +67,14 @@ services:
           APACHE_LOG_LEVEL: debug
           APACHE_BACKEND_HOST: php
           APACHE_SERVER_ROOT: /var/www/html/public/docroot
+
+    solr:
+        image: solr
+        ports:
+         - "8983:8983"
+        volumes:
+          - "./etc/solr:/opt/solr/server/solr/mycores"
+        entrypoint:
+          - docker-entrypoint.sh
+          - solr-precreate
+          - mycore

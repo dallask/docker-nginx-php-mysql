@@ -21,3 +21,6 @@ nbproject/
 
 # SSL Certs
 etc/ssl/
+
+#solr
+/etc/solr/*
