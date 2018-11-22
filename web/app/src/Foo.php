@@ -8,4 +8,9 @@ class Foo
     {
         return 'Nginx PHP MySQL';
     }
+
+    public function getNameApache()
+    {
+        return 'Apache PHP MySQL';
+    }
 }
